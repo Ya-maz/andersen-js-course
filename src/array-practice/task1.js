@@ -14,3 +14,12 @@
  * console.log(any([0, 0, 1, 0])); -> true
  * console.log(any([0, 0, 0, 0])); -> false
  */
+export default function any(arr, callback) {
+  if (arr.every(item => Boolean(item) === false)) return false;
+  if (callback === undefined) return true;
+  return arr.some(callback);
+}
+
+// console.log(any([0, 1, 2, 0], x => x >= 2));
+// console.log(any([0, 0, 1, 0]));
+// console.log(any([0, 0, 0, 0]));

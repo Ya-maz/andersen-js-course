@@ -31,6 +31,7 @@ export default function arrayDiff(arr1, arr2) {
   });
   return newA;
 }
-
-// console.log(arrayDiff([1, 2, 3], [1, 2, 4]));
-// console.log(arrayDiff([1, 3, 3, 4], [1, 3, '4']));
+console.group('task2 info:');
+console.log(arrayDiff([1, 2, 3], [1, 2, 4]));
+console.log(arrayDiff([1, 3, 3, 4], [1, 3, '4']));
+console.groupEnd();

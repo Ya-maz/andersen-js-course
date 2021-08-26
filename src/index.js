@@ -20,6 +20,13 @@ import any from './array-practice/task1';
 import arrayDiff from './array-practice/task2';
 import forEachRight from './array-practice/task3';
 import union from './array-practice/task4';
+import createrGenerator from './array-practice/task5';
+import transformArrayToNumber from './array-practice/task6';
+import take from './array-practice/task7';
+import without from './array-practice/task8';
+import indexOfAll from './array-practice/task9';
+import membersOnActiveMeetups from './array-practice/task10';
+
 
 
 // import { task1Old, task1New } from './es-features/task1';

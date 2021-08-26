@@ -11,3 +11,13 @@
  * console.log(take([1, 2, 3], 5)); -> [1, 2, 3]
  * console.log(take([1, 2, 3], 2)); -> [1, 2]
  */
+export default function take(arr, n) {
+  if (arr.length < n) {
+    return arr;
+  }
+  return arr.slice(0, n);
+}
+console.group('task7 info:');
+console.log(take([1, 2, 3], 5));
+console.log(take([1, 2, 3], 2));
+console.groupEnd();

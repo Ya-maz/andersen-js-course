@@ -11,3 +11,20 @@
  * console.log(without([2, 1, 2, 3], 1, 2)) -> [3]
  * console.log(without([2, 1, 10, 20], 1, 2)) -> [10, 20]
  */
+export default function without(arr, ...num) {
+  function isDouble(element) {
+    let count = 0;
+    num.forEach(i => {
+      if (element === i) {
+        count++
+      }
+    });
+    if (count === 0) return true;
+    return false;
+  }
+  return arr.filter(isDouble)
+}
+console.group('task8 info:');
+console.log(without([2, 1, 2, 3], 1, 2));
+console.log(without([2, 1, 10, 20], 1, 2));
+console.groupEnd();

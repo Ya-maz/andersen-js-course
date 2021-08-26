@@ -10,3 +10,16 @@
  * console.log(indexOfAll([1, 2, 3, 1, 2, 3], 1)); -> [0, 3]
  * console.log(indexOfAll([1, 2, 3], 4)); -> []
  */
+export default function indexOfAll(arr, n) {
+  const newA = [];
+  let index = arr.indexOf(n);
+  while (index !== -1) {
+    newA.push(index);
+    index = arr.indexOf(n, index + 1);
+  }
+  return newA;
+}
+console.group('task9 info:');
+console.log(indexOfAll([1, 2, 3, 1, 2, 3], 1));
+console.log(indexOfAll([1, 2, 3], 4));
+console.groupEnd();

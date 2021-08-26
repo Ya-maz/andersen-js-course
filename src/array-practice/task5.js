@@ -8,10 +8,31 @@
  * В решении функции-генераторы (function*) не использовать.
  *
  * const generator = createGenerator([1, '6', 3, 2]);
- * generator.next(); -> 1
  * generator.next(); -> '6'
  * generator.next(); -> 3
  * generator.next(); -> 2
  * generator.next(); -> 'Complete!'
  * generator.next(); -> 'Complete!'
  */
+export default function createGenerator(arr) {
+  let count = 0;
+  const str = 'Complete!';
+  return {
+    next: function() {
+      if (arr.length === count) {
+        return str;
+      }
+      return arr[count++];
+    }
+  };
+}
+
+const generator = createGenerator([1, '6', 3, 2]);
+console.group('task5 info:');
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+console.log(generator.next());
+console.groupEnd();

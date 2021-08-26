@@ -14,4 +14,4 @@
 export default function forEachRight(arr, callback) {
   arr.reverse().forEach(callback);
 }
-// forEachRight([1, 2, 3, 4], val => console.log(val));
+forEachRight([1, 2, 3, 4], val => console.log(val));

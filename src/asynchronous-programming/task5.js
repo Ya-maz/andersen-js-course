@@ -18,25 +18,16 @@ function getResponse(url) {
     .then(response => response.json())
     .catch(e => log(e));
 }
-function reception(arrPromise, url, isParallel) {
+function reception(urls, isParallel) {
   if (isParallel) {
-    return Promise.all(arrPromise);
+    return Promise.all(urls.map(url => fetch(url)))
+      .then(responses => Promise.all(responses.map(response => response.json())))
+      .then(log);
   }
-  // -----   (」°ロ°)」  ---------
-  const arrSequentially = [];
-  const prom = url.reduce(
-    (promise, currentUrl) =>
-      promise
-        .then(() => fetch(currentUrl))
-        .then(res => res.json())
-        .then(json => arrSequentially.push(json)),
-    Promise.resolve()
+  const manyURlFetch = urls.map((url, i) =>
+    getResponse(url).then(data => console.log(`promise #${i}:`, data))
   );
-  return prom.then(() => arrSequentially);
+  return manyURlFetch;
 }
-// -----   (￢_￢;)  ---------
 
-const manyURlFetch = arrayOfUrl2.map(url => getResponse(url));
-log(manyURlFetch);
-
-reception(manyURlFetch, arrayOfUrl2, false).then(log);
+reception(arrayOfUrl2, false);

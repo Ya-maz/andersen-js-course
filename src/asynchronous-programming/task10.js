@@ -10,11 +10,10 @@ class Musician {
   async getAlbums() {
     const response = await fetch(this.albumsUrl);
     const json = await response.json();
-		const albums = await json;
+    const albums = await json;
     return console.log(albums);
   }
 }
 const musician = new Musician('https://jsonplaceholder.typicode.com/albums');
 
 musician.getAlbums();
-
